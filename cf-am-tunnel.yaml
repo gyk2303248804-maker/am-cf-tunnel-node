@@ -1,0 +1,22 @@
+- name: CF-AMCLUBS-01
+  type: trojan
+  server: am-cf-tunnel-node3.pages.dev
+  port: 443
+  password: ec872d8f-72b0-4a04-b612-0327d85e18ed
+  network: ws
+  tls: true
+  udp: true
+  sni: am-cf-tunnel-node3.pages.dev
+  skip-cert-verify: true
+  ws-opts:
+    path: /am-cf-tunnel-node3.pages.dev/?ed=2560
+    headers:
+      Host: am-cf-tunnel-node3.pages.dev
+proxy-groups:
+  - name: PROXY
+    type: select
+    proxies:
+      - CF-AMCLUBS-01
+
+rules:
+  - MATCH,PROXY
